@@ -1,0 +1,11 @@
+<h2>{{name}}'s Hobbies App</h2>
+<p [ngStyle]="{color: hobbies.length > 3 ? 'green': 'blue'}">I have {{hobbies.length}} hobbies!</p>
+<ul>
+    <app-hobby *ngFor="let hobby of hobbies" [hobby]="hobby" (hobbyClicked)="onHobbyWasClicked($event)"></app-hobby>
+</ul>
+<p *ngIf="hobbyDel==true" style="color:red">Hobby Removed!</p>
+
+<input type="text" [(ngModel)]="hobby">
+<button (click)="onAddHobby(hobby)">Add Element</button>
+
+<router-outlet></router-outlet>
